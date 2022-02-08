@@ -1,0 +1,171 @@
+body {
+  background-color: #3c282f;
+}
+
+#searchPerk {
+  background-image: url('./css/searchicon.png');
+  /* Add a search icon to input */
+  background-position: 10px 12px;
+  /* Position the search icon */
+  background-repeat: no-repeat;
+  /* Do not repeat the icon image */
+  width: 33%;
+  /* Full-width */
+  font-size: 16px;
+  /* Increase font-size */
+  padding: 12px 20px 12px 40px;
+  /* Add some padding */
+  border: 1px solid #ddd;
+  /* Add a grey border */
+  margin-bottom: 12px;
+  /* Add some space below the input */
+  margin-left: 32px;
+}
+
+#description {
+  color: #ffffff;
+  margin: auto;
+  width: 50%;
+}
+
+#name {
+  color: #ffffff;
+  margin: auto;
+  width: 50%;
+}
+
+#stars {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 50%;
+  filter: invert(18%) sepia(89%) saturate(3950%) hue-rotate(301deg) brightness(116%) contrast(125%);
+}
+
+#perkScroll {
+  margin: 32px;
+  width: auto;
+  overflow-y: hidden;
+  overflow-x: auto;
+  white-space: nowrap;
+  height: 150px;
+}
+
+#portraitHolder {
+  margin-right: auto;
+  position: absolute;
+}
+
+#portraitName {
+  color: #fff;
+  margin-right: auto;
+  margin-left: auto;
+  width: 50%;
+  margin-top: auto;
+  position: absolute;
+}
+
+::-webkit-scrollbar {
+  width: 5px;
+  height: 8px;
+  background-color: #ff00fc;
+  /* or add it to the track */
+}
+
+::-webkit-scrollbar-thumb {
+  background: #8400ba;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #7c0ea8;
+}
+
+.dropbtn {
+  background-color: #04AA6D;
+  color: white;
+  padding: 16px;
+  font-size: 16px;
+  border: none;
+}
+
+.roleDropdown {
+  margin-left: 32px;
+}
+
+.roleDropdown-content {
+  background-color: #0002a1;
+  display: flex;
+  margin-right: auto;
+  width: 155px;
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+  z-index: 1;
+}
+
+.roleDropdown-content a {
+  color: white;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: inline-block;
+  cursor: pointer;
+}
+
+.roleDropdown-content a:hover {
+  background-color: #5106b1;
+}
+
+.perk {
+  cursor: pointer;
+  margin: 5px;
+}
+
+.clickedPerk {
+  background-color: #26191e;
+}
+
+.clickedRole {
+  background-color: #8541f5;
+}
+
+.survivorDropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f1f1f1;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+  z-index: 1;
+}
+
+.survivorDropdown-content a {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
+
+.killerDropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f1f1f1;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+  z-index: 1;
+}
+
+.killerDropdown-content a {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
+
+.survivorDropdown:hover .survivorDropdown-content {
+  display: block;
+  max-height: 20%;
+  overflow-y: auto;
+}
+
+.killerDropdown:hover .killerDropdown-content {
+  display: block;
+  max-height: 20%;
+  overflow-y: auto;
+}

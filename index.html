@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+  <meta charset="utf-8">
+  <link rel="stylesheet" href="main.css">
+  <title>DBD Lookup Page</title>
+</head>
+
+<body>
+  <div><input type="text" id="searchPerk" onkeyup="searchPerk()" placeholder="Search..."></div>
+  <div class="roleDropdown">
+    <div class="roleDropdown-content">
+
+      <div class="survivorDropdown">
+        <a id="roleSurvivor">Survivor</a>
+        <div class="survivorDropdown-content">
+          <a class="survivor" id="all">All</a>
+          <a class="survivor" id="basicSurvivor">Basic Perks</a>
+          <a class="survivor" id="0">Dwight Fairfield</a>
+          <a class="survivor" id="1">Meg Thomas</a>
+          <a class="survivor" id="2">Claudette Morel</a>
+          <a class="survivor" id="3">Jake Park</a>
+          <a class="survivor" id="4">Nea Karlsson</a>
+          <a class="survivor" id="5">Laurie Strode</a>
+          <a class="survivor" id="6">Ace Visconti</a>
+          <a class="survivor" id="7">William "Bill" Overbeck</a>
+          <a class="survivor" id="8">Feng Min</a>
+          <a class="survivor" id="9">David King</a>
+          <a class="survivor" id="11">Quentin Smith</a>
+          <a class="survivor" id="12">Detective Tapp</a>
+          <a class="survivor" id="10">Kate Denson</a>
+          <a class="survivor" id="13">Adam Francis</a>
+          <a class="survivor" id="14">Jeffrey "Jeff" Johansen</a>
+          <a class="survivor" id="15">Jane Romero</a>
+          <a class="survivor" id="16">Ash J. Williams</a>
+          <a class="survivor" id="17">Nancy Wheeler</a>
+          <a class="survivor" id="18">Steve Harrington</a>
+          <a class="survivor" id="19">Yui Kimura</a>
+          <a class="survivor" id="20">Zarina Kassir</a>
+          <a class="survivor" id="21">Cheryl Mason</a>
+          <a class="survivor" id="22">Felix Richter</a>
+          <a class="survivor" id="23">Élodie Rakoto</a>
+          <a class="survivor" id="24">Yun-Jin Lee</a>
+          <a class="survivor" id="25">Jill Valentine</a>
+          <a class="survivor" id="26">Leon Scott Kennedy</a>
+          <a class="survivor" id="27">Mikaela Reid</a>
+          <a class="survivor" id="28">Jonah Vasquez</a>
+        </div>
+      </div>
+      <div class="killerDropdown">
+        <a id="roleKiller">Killer</a>
+        <div class="killerDropdown-content">
+          <a class="killer" id="all">All</a>
+          <a class="killer" id="basicKiller">Basic Perks</a>
+          <a class="killer" id="268435456">The Trapper</a>
+          <a class="killer" id="268435457">The Wraith</a>
+          <a class="killer" id="268435458">The Hillbilly</a>
+          <a class="killer" id="268435459">The Nurse</a>
+          <a class="killer" id="268435461">The Shape</a>
+          <a class="killer" id="268435460">The Hag</a>
+          <a class="killer" id="268435462">The Doctor</a>
+          <a class="killer" id="268435463">The Huntress</a>
+          <a class="killer" id="268435464">The Cannibal</a>
+          <a class="killer" id="268435465">The Nightmare</a>
+          <a class="killer" id="268435466">The Pig</a>
+          <a class="killer" id="268435467">The Clown</a>
+          <a class="killer" id="268435468">The Spirit</a>
+          <a class="killer" id="268435469">The Legion</a>
+          <a class="killer" id="268435470">The Plague</a>
+          <a class="killer" id="268435471">The Ghost Face</a>
+          <a class="killer" id="268435472">The Demogorgon</a>
+          <a class="killer" id="268435473">The Oni</a>
+          <a class="killer" id="268435474">The Deathslinger</a>
+          <a class="killer" id="268435475">The Executioner</a>
+          <a class="killer" id="268435476">The Blight</a>
+          <a class="killer" id="268435477">The Twins</a>
+          <a class="killer" id="268435478">The Trickster</a>
+          <a class="killer" id="268435479">The Nemesis</a>
+          <a class="killer" id="268435480">The Cenobite</a>
+          <a class="killer" id="268435481">The Artist</a>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div id="perkScroll"></div>
+  <div id="portraitHolder"><img id="portrait"></img></div>
+  <div id="portraitName"> </div>
+  <div id=stars>
+    <img id="star1" class="stars" src="./css/star.svg">
+    <img id="star2" class="stars" src="./css/star.svg">
+    <img id="star3" class="stars" src="./css/star.svg">
+    <img id="star4" class="stars" src="./css/star.svg">
+    <img id="star5" class="stars" src="./css/star.svg">
+  </div>
+  <div>
+    <h1 id="name">This will tell you the name of the perk you're looking for</h1>
+  </div>
+  <div>
+    <p id="description">This will be the description of such perk</p>
+  </div>
+  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js" type="text/javascript"></script>
+  <script src="main.js" charset="utf-8"></script>
+</body>
+
+</html>
