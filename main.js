@@ -1,19 +1,21 @@
-$(document).ready(function () {
 
-$.ajaxSetup({
-  async: false
-});
-var killers, perks, survivors = null;
-$.getJSON("https://jignaciodegiovanni.github.io/DBD-Lookup-ALPHA/json/perks.json", function(json) {
-  perks = json;
-});
+function searchPerk() {
+  // Declare variables
+  let input, filter, list, a, i, txtValue;
+  input = document.getElementById('searchPerk');
+  filter = input.value.toUpperCase();
+  list = document.getElementsByClassName('perk');
+  // Loop through all list items, and hide those who don't match the search query
+  for (i = 0; i < list.length; i++) {
+    txtValue = list[i].id
+    if (txtValue.toUpperCase().indexOf(filter) > -1) {
+      list[i].style.display = "";
+    } else {
+      list[i].style.display = "none";
+    }
+  }
+}
 
-$.getJSON("https://jignaciodegiovanni.github.io/DBD-Lookup-ALPHA/json/characters.json", function(json) {
-  characters = json;
-});
-
-let lastSurv = perks.Ace_In_The_Hole;
-let lastKiller = perks.NurseCalling;
 
 let doubleBubble = function(arr, arr2) {
   var len = arr.length;
@@ -34,6 +36,24 @@ let doubleBubble = function(arr, arr2) {
   }
   return [arr, arr2];
 }
+
+$(document).ready(function () {
+
+$.ajaxSetup({
+  async: false
+});
+var killers, perks, survivors = null;
+$.getJSON("http://localhost:8080/json/perks.json", function(json) {
+  perks = json;
+});
+
+$.getJSON("https://jignaciodegiovanni.github.io/DBD-Lookup-ALPHA/json/characters.json", function(json) {
+  characters = json;
+});
+
+let lastSurv = perks.Ace_In_The_Hole;
+let lastKiller = perks.NurseCalling;
+
 
 
 
@@ -210,23 +230,6 @@ document.getElementById("roleSurvivor").addEventListener("click", function() {  
   this.classList.add("clickedRole");
 });
 
-function searchPerk() {
-  // Declare variables
-  let input, filter, list, a, i, txtValue;
-  input = document.getElementById('searchPerk');
-  filter = input.value.toUpperCase();
-  list = document.getElementsByClassName('perk');
-  // Loop through all list items, and hide those who don't match the search query
-  for (i = 0; i < list.length; i++) {
-    txtValue = list[i].id
-    if (txtValue.toUpperCase().indexOf(filter) > -1) {
-      list[i].style.display = "";
-    } else {
-      list[i].style.display = "none";
-    }
-  }
-}
-
 
 function loopNext(speed){
     $('#perkScroll').stop().animate({scrollLeft:'+=40'}, 'fast', 'linear', loopNext);
@@ -323,30 +326,83 @@ $('#minOrExact').on('change', function(){
 
 $('.survivor').on('click', function()
 {
+  getPerks("survivor");
+  document.getElementById("roleKiller").classList.remove("clickedRole");
+  document.getElementById("roleSurvivor").classList.add("clickedRole");
   let list = document.getElementsByClassName('perk');
   let survivorPerks = [];
-  console.log(perks.Kindred.character);
+  let first = true;
   Object.keys(perks).forEach(k=>{
-    if(this.id != "all" && this.id != basicSurvivor){
+    if(this.id != "all" && this.id != "basicSurvivor"){
       if(perks[k].character == this.id){
+        if(first){lastSurv = perks[k]; first=false;}
         survivorPerks.push(perks[k].name);
       }
     }
     else if(this.id == "basicSurvivor"){
       if(perks[k].character == "null"){
-        console.log("yes");
-        survivorPerks.push(perks[k]);
+        if(first){lastSurv = perks[k]; first=false;}
+        survivorPerks.push(perks[k].name);
+      }
+    }
+    else{
+      if(perks[k].role == "survivor"){
+        if(first){lastSurv = perks[k]; first=false;}
+        survivorPerks.push(perks[k].name)
       }
     }
 
   })
+  first = true;
   for (i = 0; i < list.length; i++) {
     if (survivorPerks.indexOf(list[i].id) >= 0) {
+      if(first){list[i].classList.add("clickedPerk");first=false}
       list[i].style.display = "";
     } else {
       list[i].style.display = "none";
     }
   }
+  clickPerk(lastSurv);
+});
+
+$('.killer').on('click', function()
+{
+  getPerks("killer");
+  document.getElementById("roleSurvivor").classList.remove("clickedRole");
+  document.getElementById("roleKiller").classList.add("clickedRole");
+  let list = document.getElementsByClassName('perk');
+  let killerPerks = [];
+  let first = true;
+  Object.keys(perks).forEach(k=>{
+    if(this.id != "all" && this.id != "basicKiller"){
+      if(perks[k].character == this.id){
+        if(first){lastKiller = perks[k]; first=false;}
+        killerPerks.push(perks[k].name);
+      }
+    }
+    else if(this.id == "basicKiller"){
+      if(perks[k].character == "null"){
+        if(first){lastKiller = perks[k]; first=false;}
+        killerPerks.push(perks[k].name);
+      }
+    }
+    else{
+      if(perks[k].role == "killer"){
+        if(first){lastKiller = perks.NurseCalling; first=false;}
+        killerPerks.push(perks[k].name)
+      }
+    }
+  })
+  first = true;
+  for (i = 0; i < list.length; i++) {
+    if (killerPerks.indexOf(list[i].id) >= 0) {
+      if(first){list[i].classList.add("clickedPerk");first=false}
+      list[i].style.display = "";
+    } else {
+      list[i].style.display = "none";
+    }
+  }
+  clickPerk(lastKiller);
 });
 
 });
