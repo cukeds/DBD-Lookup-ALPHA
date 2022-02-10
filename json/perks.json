@@ -204,7 +204,7 @@
     "name": "Bitter Murmur",
     "description": "Unlocks potential in one's aura reading ability. Each time a generator is fully repaired, Survivors within {0} meters of the completed generator will be revealed for {1} seconds.<br><br>When the last generator is fully repaired, all the Survivors' auras are revealed for {2} seconds.",
     "role": "killer",
-    "character": null,
+    "character": "null",
     "tunables": [
       ["16"],
       ["5"],
@@ -503,8 +503,8 @@
     "tunables": [
       ["32"],
       ["20", "25", "30"],
-      [null],
-      [null]
+      ["null"],
+      ["null"]
     ],
     "modifier": "DarkDevotion_BP",
     "teachable": "40",
@@ -516,7 +516,7 @@
     "name": "Dark Sense",
     "description": "Unlocks potential in one's aura reading ability. Each time a generator is completed, The Killer's aura is revealed to you for {0} seconds.<br><br>When the last generator is powered the Killer's aura is revealed to you for {1} seconds.",
     "role": "survivor",
-    "character": null,
+    "character": "null",
     "tunables": [
       ["5"],
       ["5", "7", "10"]
@@ -589,7 +589,7 @@
     "name": "Deerstalker",
     "description": "Unlocks potential in one's aura reading ability. Reveals dying Survivors' auras when standing within a {0} meter range.",
     "role": "killer",
-    "character": null,
+    "character": "null",
     "tunables": [
       ["20", "28", "36"]
     ],
@@ -603,7 +603,7 @@
     "name": "Deja Vu",
     "description": "Unlocks potential in one's aura reading ability. Paranoia paired with the horror of failure drives you to avoid repeating the same mistakes.<br><br>The auras of {0} generators which are in close proximity to one another are revealed to you for {1} seconds, at the start of the match and each time a generator is completed.<br><br>If you are holding a map that can track generators, generators revealed by <i>Deja Vu</i> are added to the map.",
     "role": "survivor",
-    "character": null,
+    "character": "null",
     "tunables": [
       ["3"],
       ["30", "45", "60"]
@@ -690,7 +690,7 @@
     "name": "Distressing",
     "description": "Your horrifying emanation strikes at a supernaturally long distance. Your Terror Radius is increased by {0}%. Gain {1}% more Bloodpoints for actions in the Deviousness category.",
     "role": "killer",
-    "character": null,
+    "character": "null",
     "tunables": [
       ["22", "24", "26"],
       ["100"]
@@ -883,7 +883,7 @@
     "character": "268435474",
     "tunables": [
       ["6", "8", "10"],
-      [null]
+      ["null"]
     ],
     "modifier": "Gearhead",
     "teachable": "30",
@@ -1054,7 +1054,7 @@
     "name": "Hex: Thrill of the Hunt",
     "description": "A Hex rooting its power on hope. The false hope of Survivors fills you with excitement and strengthen your Totems. For each Dull and Hex Totem remaining on the map gain a token.<br><br><li>Gain {0}% more Bloodpoints for actions in the Hunter category for each token.</li><li>Survivors' cleansing and blessing speed is reduced by {1}% for each token.</li><br><br><i>The Hex effects persist as long as the related Hex Totem is standing.</i>",
     "role": "killer",
-    "character": null,
+    "character": "null",
     "tunables": [
       ["10"],
       ["8", "9", "10"]
@@ -1069,7 +1069,7 @@
     "name": "Hope",
     "description": "The growing odds of a successful escape fill you with hope and give you wings. As soon as the exit gates are powered you gain a {0}% <b><i>Haste</i></b> status effect for {1} seconds.",
     "role": "survivor",
-    "character": null,
+    "character": "null",
     "tunables": [
       ["5", "6", "7"],
       ["120"]
@@ -1127,7 +1127,7 @@
     "name": "Insidious",
     "description": "Unlocks the stealth ability.<br><br>Standing still for {0} seconds grants you the <b>Undetectable</b> status effect until you move or act again.",
     "role": "killer",
-    "character": null,
+    "character": "null",
     "tunables": [
       ["4", "3", "2"],
       ["0"]
@@ -1174,7 +1174,7 @@
     "name": "Iron Grasp",
     "description": "Your powerful hold on the Survivors causes escapes to be nearly impossible. Effects of Survivor struggling are reduced by {0}%. Time to struggle out of your grasp is increased by {1}%.",
     "role": "killer",
-    "character": null,
+    "character": "null",
     "tunables": [
       ["75"],
       ["4", "8", "12"]
@@ -1332,7 +1332,7 @@
     "stars": "3"
   },
   "K25P01": {
-    "categories": null,
+    "categories": "null",
     "name": "Deadlock",
     "description": "You induce mental suffering by crushing any hope of escape.<br><br>After a generator is repaired, The Entity blocks the generator with the most progress for {0} seconds. You see its white aura during this time.",
     "role": "killer",
@@ -1347,7 +1347,7 @@
     "stars": "4"
   },
   "K25P02": {
-    "categories": null,
+    "categories": "null",
     "name": "Hex: Plaything",
     "description": "A hex that toys with a victim's suffering.<br><br>The first time you hook a Survivor, they become Cursed and <i>Hex: Plaything</i> activates on a Dull Totem. The Cursed Survivor suffers from the Oblivious status effect until <i>Hex: Plaything</i> is cleansed.<br><br><i>Hex: Plaything</i>'s totem aura is revealed to the Cursed Survivor when within {0} meters of it. For the first {1} seconds, only the Cursed Survivor can cleanse the totem.",
     "role": "killer",
@@ -1362,7 +1362,7 @@
     "stars": "3"
   },
   "K25P03": {
-    "categories": null,
+    "categories": "null",
     "name": "Scourge Hook: Gift of Pain",
     "description": "You are the bringer of sweet pain.<br><br>At the start of the trial, up to {0} random hooks are changed into scourge hooks. You see their auras in white.<br><br>When a Survivor is unhooked from a scourge hook, they suffer from the <b>Hemorrhage</b> and <b>Mangled</b> status effect until fully healed. The first time the Survivor is healed, they suffer a {1}% penalty to healing and repairing actions until injured again.",
     "role": "killer",
@@ -1377,7 +1377,7 @@
     "stars": "2"
   },
   "K26P01": {
-    "categories": null,
+    "categories": "null",
     "name": "Grim Embrace",
     "description": "Your act of servitude to The Entity has not gone unnoticed.<br><br>Each time a Survivor is hooked for the first time, you gain a token. Upon reaching {0} tokens <i>Grim Embrace</i> activates.<br><br>The Entity blocks all generators for {1} seconds. The Obsession's aura is revealed to you for {2} seconds.",
     "role": "killer",
@@ -1393,7 +1393,7 @@
     "stars": "2"
   },
   "K26P02": {
-    "categories": null,
+    "categories": "null",
     "name": "Scourge Hook: Pain Resonance",
     "description": "Overwhelming pain reverberates outwards into chaos.<br><br>At the start of the trial, up to {0} random hooks are changed into scourge hooks. You see their auras in white.<br><br>Any time a Survivor is hooked on a scourge hook, the generator with the most progress explodes, instantly losing {1}% progress and will start to regress. Survivors repairing the generator will scream, revealing their location.",
     "role": "killer",
@@ -1408,7 +1408,7 @@
     "stars": "5"
   },
   "K26P03": {
-    "categories": null,
+    "categories": "null",
     "name": "Hex: Pentimento",
     "description": "You reveal the true power of the Totems, hidden within their remains.<br><br>You see the aura of destroyed Totems. You can perform a ritual on a destroyed Totem to rekindle it as a Hex Totem for Hex: Pentimento. For each Hex Totem active at the same time, Hex: Pentimento gains an additional effect.<br><br><li>1 Hex Totem: Decreases Survivors' repair speed by {0}%.</li><li>2 Hex Totems: Decreases Survivors' healing speed by {1}%.</li><li>3 Hex Totems: Decreases Survivors' recovery speed from being downed by {2}%.</li><li>4 Hex Totems: Decreases Survivors' exit gate opening speed by {3}%.</li><li>5 Hex Totems: All Totems are blocked by the Entity.</li><br><br>When a previously rekindled Hex Totem is removed by any means, its remains are consumed by The Entity and it cannot be rekindled again.",
     "role": "killer",
@@ -1429,7 +1429,7 @@
     "name": "Kindred",
     "description": "Unlocks potential in one's aura reading ability. While you are on the hook, all Survivor's auras are revealed to all other Survivors. If The Killer is within a {0} meter range, The Killer's aura is revealed to all other Survivors.<br><br>While a Survivor other than you is on the hook, all other Survivors\u2019 auras are revealed to you. If The Killer is within a {0} meter range of the hooked Survivor, The Killer's aura is revealed to you.",
     "role": "survivor",
-    "character": null,
+    "character": "null",
     "tunables": [
       ["8", "12", "16"]
     ],
@@ -1487,7 +1487,7 @@
     "name": "Lightweight",
     "description": "Your running is light and soft, making your tracks harder to follow. Scratch marks stay visible {0} seconds less than normal.",
     "role": "survivor",
-    "character": null,
+    "character": "null",
     "tunables": [
       ["1", "2", "3"]
     ],
@@ -1591,7 +1591,7 @@
     "name": "Monstrous Shrine",
     "description": "Your fervent care of the hooks found in the basement have aroused The Entity's interest. The basement hooks grant the following bonuses:<br><br><li>{0}% faster Entity progress.</li><li>{1}% increased difficulty on escape attempts.</li><li>{2}% increased penalty on escape fails.</li>",
     "role": "killer",
-    "character": null,
+    "character": "null",
     "tunables": [
       ["3", "6", "9"],
       ["5", "10", "15"],
@@ -1637,7 +1637,7 @@
     "name": "Hex: No One Escapes Death",
     "description": "A Hex rooting its power on hope. You are animated by the power of your Hex Totem when the Survivors are on the verge of escaping.<br><br>Once the exit gates are powered, if there is a Dull Totem remaining on the map, this Hex is applied to it.<br><br><br>While this Hex is active,<li>Survivors suffer from the <b><i>Exposed</i></b> status effect.</li><li>Your movement speed is increased by {0}%</li><br><br>The Hex effects persist as long as the related Hex Totem is standing.",
     "role": "killer",
-    "character": null,
+    "character": "null",
     "tunables": [
       ["2", "3", "4"]
     ],
@@ -1651,7 +1651,7 @@
     "name": "No One Left Behind",
     "description": "It is inconceivable to leave someone behind. Once at least one exit gate is opened, you gain the following effects:<br><br><li>{0}% additional Bloodpoints for healing and unhooking other Survivors.</li><li>{1}% bonus action speed when healing and unhooking other Survivors.</li><li>The auras of all other Survivors are revealed to you.</li>",
     "role": "survivor",
-    "character": null,
+    "character": "null",
     "tunables": [
       ["50", "75", "100"],
       ["30", "40", "50"]
@@ -1767,7 +1767,7 @@
     "name": "Plunderer's Instinct",
     "description": "Unlocks potential in one's aura reading ability. The auras of unopened chests and items in the environment are revealed to you when standing within a {0} meter range. Grants a <b>considerably</b> better chance at finding an item of higher rarity from chests.",
     "role": "survivor",
-    "character": null,
+    "character": "null",
     "tunables": [
       ["16", "24", "32"]
     ],
@@ -1822,7 +1822,7 @@
     "name": "Premonition",
     "description": "You have the undeniable capability to sense danger. Get an auditory warning when looking in the direction of the Killer in a 45 degree cone within a range of {0} meters. Premonition has a cooldown of {1} seconds each time it activates.",
     "role": "survivor",
-    "character": null,
+    "character": "null",
     "tunables": [
       ["36"],
       ["60", "45", "30"]
@@ -1928,7 +1928,7 @@
     "name": "Resilience",
     "description": "You are motivated in dire situations. Grants {0}% additional speed when repairing, sabotaging, healing, unhooking, vaulting, cleansing, opening exit gates, and unlocking while injured.",
     "role": "survivor",
-    "character": null,
+    "character": "null",
     "tunables": [
       ["3", "6", "9"]
     ],
@@ -2115,7 +2115,7 @@
     "stars": "2"
   },
   "S28P01": {
-    "categories": null,
+    "categories": "null",
     "name": "Clairvoyance",
     "description": "There is an intrinsic energy in you that sees beyond your vision.<br><br><i>Clairvoyance</i> activates whenever you cleanse a Totem.<br><br>When empty-handed, hold the <i>Ability button</i> to unlock your full aura-reading potential. For up to {0} seconds, you see the auras of exit gate switches, generators, hooks, chest and the hatch within a {1} meter range.",
     "role": "survivor",
@@ -2130,7 +2130,7 @@
     "stars": "2"
   },
   "S28P02": {
-    "categories": null,
+    "categories": "null",
     "name": "Boon: Circle of Healing",
     "description": "A boon that offers comfort amidst the terror.<br><br>Press and hold the <i>Ability button</i> near a Dull or Hex Totem to bless it and create a Boon Totem. Soft chimes ring out in a {0} meter range.<br><br>Any Survivors within the Boon Totem's range gain a {1}% healing speed bonus and can heal themselves without needing a Med-Kit.<br><br>You can only bless one Totem at a time. All equipped boon perks are active on your Boon Totem.",
     "role": "survivor",
@@ -2145,7 +2145,7 @@
     "stars": "5"
   },
   "S28P03": {
-    "categories": null,
+    "categories": "null",
     "name": "Boon: Shadow Step",
     "description": "A boon that conceals the truth.<br><br>Press and hold the <i>Ability button</i> near a Dull or Hex Totem to bless it and create a Boon Totem. Soft chimes ring out in a {0} meter range.<br><br>Any Survivors within the Boon Totem\u2019s range will have their scratch marks and auras hidden to the Killer. This effect lingers for {1} seconds after leaving the Boon Totem\u2019s range.<br><br>You can only bless one Totem at a time. All equipped boon perks are active on your Boon Totem.",
     "role": "survivor",
@@ -2160,7 +2160,7 @@
     "stars": "4"
   },
   "S29P01": {
-    "categories": null,
+    "categories": "null",
     "name": "Overcome",
     "description": "You've calculated how much energy you can risk to expend.<br><br>When you are injured, you retain the movement speed bonus for {0} seconds longer.<br><br><i>Overcome</i> causes the <b>Exhausted</b> status effect for {1} seconds.<br><br><i>Overcome</i> cannot be used when Exhausted.",
     "role": "survivor",
@@ -2175,7 +2175,7 @@
     "stars": "3"
   },
   "S29P02": {
-    "categories": null,
+    "categories": "null",
     "name": "Corrective Action",
     "description": "You quickly analyze problems and correct other's work when they make a mistake.<br><br>You start the trial with {0} token(s) and gain a token, up to a maximum of {1}, for every great Skill Check.<br><br>When a Survivor fails a Skill Check while cooperating with you, 1 token is consumed and their failed Skill Check becomes a good Skill Check.",
     "role": "survivor",
@@ -2190,7 +2190,7 @@
     "stars": "1"
   },
   "S29P03": {
-    "categories": null,
+    "categories": "null",
     "name": "Boon: Exponential",
     "description": "When it seems like your number is up, you consider ways to recalculate the odds.<br><br>Press and hold the <i>Ability button</i> near a Dull or Hex Totem to bless it and create a Boon Totem. Soft chimes ring out in a {0} meter range.<br><br>All Survivors within the Boon Totem's range recover {1}% faster and can completely recover from the dying state.<br><br>You can only bless one Totem at a time. All equipped boon perks are active on your Boon Totem.",
     "role": "survivor",
@@ -2296,7 +2296,7 @@
     "name": "Slippery Meat",
     "description": "You have developed an efficient way to get off hooks.<br><br><li>Grants up to {0} extra escape attempts on the hook.</li><li>Hook escape attempts have a {1}% increased chance to succeed.</li>",
     "role": "survivor",
-    "character": null,
+    "character": "null",
     "tunables": [
       ["3"],
       ["2", "3", "4"]
@@ -2311,7 +2311,7 @@
     "name": "Sloppy Butcher",
     "description": "You know where to hit to make them bleed. Wounds inflicted by successful <i>basic attacks</i> cause the <b>Mangled</b> and <b>Hemorrhage</b> status effects. <b>Hemorrhage</b> slightly increases the Survivor's bleeding frequency.<br><br>The <b>Hemorrhage</b> effect caused by <i>Sloppy Butcher</i> is removed once the Survivor is fully healed.",
     "role": "killer",
-    "character": null,
+    "character": "null",
     "tunables": [],
     "modifier": "SloppyButcher",
     "teachable": "0",
@@ -2323,7 +2323,7 @@
     "name": "Small Game",
     "description": "You have the undeniable capability to sense danger. Get an auditory warning when looking in the direction of Totems in a 45-degree cone within a range of {0} meters. Small Game has a cooldown of {1} seconds each time it activates. For each Dull Totem and Hex Totem cleansed by any player, gain a Token. Small Game's detection cone is reduced by 5 degrees per token.",
     "role": "survivor",
-    "character": null,
+    "character": "null",
     "tunables": [
       ["8", "10", "12"],
       ["14", "12", "10"]
@@ -2381,7 +2381,7 @@
     "name": "Spies from the Shadows",
     "description": "The crows found in the world can communicate with you directly. {0}% of the time, cawing crows give you a visual cue when you are within a {1} meter range.<br><br><i>Spies From The Shadows</i> has a cooldown of {2} seconds.",
     "role": "killer",
-    "character": null,
+    "character": "null",
     "tunables": [
       ["100"],
       ["20", "28", "36"],
@@ -2397,7 +2397,7 @@
     "name": "Spine Chill",
     "description": "An unnatural tingle warns you of impending doom. Get notified when the Killer is looking directly in your direction and standing within a {0} meter range. While Spine Chill is active, Skill Check trigger odds are increased by {1}% with success zones reduced by {2}%. While Spine Chill is active your speed while repairing, sabotaging, healing, unhooking, vaulting, cleansing, opening exit gates, and unlocking is increased by {3}%.",
     "role": "survivor",
-    "character": null,
+    "character": "null",
     "tunables": [
       ["36"],
       ["10"],
@@ -2596,7 +2596,7 @@
     "name": "This Is Not Happening",
     "description": "You perform at your best when you are under extreme stress. Great Skill Check success zones when repairing and healing get {0}% bigger when you are injured.",
     "role": "survivor",
-    "character": null,
+    "character": "null",
     "tunables": [
       ["10", "20", "30"]
     ],
@@ -2644,7 +2644,7 @@
     "character": "268435475",
     "tunables": [
       ["16"],
-      [null],
+      ["null"],
       ["80", "70", "60"]
     ],
     "modifier": "TrailofTorment",
@@ -2672,7 +2672,7 @@
     "name": "Unrelenting",
     "description": "You recuperate faster from missed attacks made with your main weapon. The cooldown after missed <i>basic attacks</i> is reduced by {0}%.",
     "role": "killer",
-    "character": null,
+    "character": "null",
     "tunables": [
       ["20", "25", "30"]
     ],
@@ -2761,7 +2761,7 @@
     "name": "We'll make it",
     "description": "Helping others heightens your morale.<br><br>When you rescue a Survivor from a hook, gain a {0}% speed increase while healing others for {1} seconds.",
     "role": "survivor",
-    "character": null,
+    "character": "null",
     "tunables": [
       ["100"],
       ["30", "60", "90"]
@@ -2791,7 +2791,7 @@
     "name": "Whispers",
     "description": "You have a rudimentary understanding of The Entity's voice. Sporadically hear The Entity's whisper when standing within a {0} meter range of a Survivor.",
     "role": "killer",
-    "character": null,
+    "character": "null",
     "tunables": [
       ["48", "40", "32"]
     ],

@@ -321,4 +321,32 @@ $('#minOrExact').on('change', function(){
   }
 });
 
+$('.survivor').on('click', function()
+{
+  let list = document.getElementsByClassName('perk');
+  let survivorPerks = [];
+  console.log(perks.Kindred.character);
+  Object.keys(perks).forEach(k=>{
+    if(this.id != "all" && this.id != basicSurvivor){
+      if(perks[k].character == this.id){
+        survivorPerks.push(perks[k].name);
+      }
+    }
+    else if(this.id == "basicSurvivor"){
+      if(perks[k].character == "null"){
+        console.log("yes");
+        survivorPerks.push(perks[k]);
+      }
+    }
+
+  })
+  for (i = 0; i < list.length; i++) {
+    if (survivorPerks.indexOf(list[i].id) >= 0) {
+      list[i].style.display = "";
+    } else {
+      list[i].style.display = "none";
+    }
+  }
+});
+
 });
