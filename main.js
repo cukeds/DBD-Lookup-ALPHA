@@ -10,6 +10,9 @@ $.getJSON("http://localhost:8080/json/characters.json", function(json) {
   characters = json;
 });
 
+let lastSurv = perks.Ace_In_The_Hole;
+let lastKiller = perks.NurseCalling;
+
 let doubleBubble = function(arr, arr2) {
   var len = arr.length;
 
@@ -30,6 +33,125 @@ let doubleBubble = function(arr, arr2) {
   return [arr, arr2];
 }
 
+
+
+let getRecommended = function(perk){
+  let recommendedP = [];
+  let recommendedStars = [];
+  for(let i = 0; i < perk.categories.length; i++){
+    category = perk.categories[i];
+    Object.keys(perks).forEach(k => {
+      if(perks[k].categories != null){
+        if(document.getElementById("minOrExact").value == 1){
+          if(perks[k].categories.indexOf(category) >= 0 && perks[k].stars >= document.getElementById("starsOfPerks").value && perks[k].modifier != perk.modifier){
+            recommendedP.push(perks[k]);
+            recommendedStars.push(perks[k].stars)
+          }
+        }
+        else{
+          if(perks[k].categories.indexOf(category) >= 0 && perks[k].stars == document.getElementById("starsOfPerks").value && perks[k].modifier != perk.modifier){
+            recommendedP.push(perks[k]);
+            recommendedStars.push(perks[k].stars)
+          }
+        }
+      }
+    })
+  }
+  recommendedP = doubleBubble(recommendedStars, recommendedP)[1].reverse();
+  recommendedP = recommendedP.slice(0, 5);
+  let recommended = [];
+  for(let i = 0; i < recommendedP.length; i++){
+    let p = document.createElement("img");
+    p.src = "http://localhost:8080/" + recommendedP[i].image;
+    p.id = recommendedP[i].name;
+    p.width = 64;
+    p.height = 64;
+    p.classList.add("recommendedPerk");
+
+    p.addEventListener('click', function() {
+      document.getElementById('searchPerk').value = p.id;
+      searchPerk();
+    })
+    recommended.push(p);
+  }
+  if(recommended.length == 0){
+    let p = document.createElement("img");
+    p.width = 64;
+    p.height = 64;
+    recommended.push(p);
+  }
+  return recommended;
+}
+
+let clickPerk = function(perk){
+  for (let i = 0; i < document.getElementsByClassName("clickedPerk").length; i++) {
+    if(document.getElementsByClassName("clickedPerk")[i].id != perk.name){
+      document.getElementsByClassName("clickedPerk")[i].classList.remove("clickedPerk");
+    }
+  }
+  document.getElementById('name').textContent = perk.name;
+  cleanText = perk.description.replace(/<\/?[^>]+(>|$)/g, "");
+  cleanText = cleanText.replaceAll(',', ', ');
+  cleanText = cleanText.replaceAll('.', '. ');
+  for (let i = 0; i < perk.tunables.length; i++) {
+    cleanText = cleanText.replace(`{${i}}`, perk.tunables[i][perk.tunables[i].length - 1]);
+  }
+  document.getElementById('description').innerText = cleanText;
+  for (let i = 1; i < 6; i++) {
+    if (i <= parseInt(perk.stars)) {
+      document.getElementById(`star${i}`).style.display = "";
+    } else {
+      document.getElementById(`star${i}`).style.display = "none";
+    }
+  }
+
+  let portrait = document.getElementById("portrait");
+
+
+  if(characters[perk.character] != null){
+    document.getElementById("portraitName").innerText = characters[perk.character].name;
+    portrait.src = "http://localhost:8080/UI/Icons/CharPortraits/" + characters[perk.character].image;
+  }
+  else{
+    document.getElementById("portraitName").innerText = `Basic ${perk.role} perk`;
+    portrait.src = "http://localhost:8080/css/pentagram.png";
+  }
+
+  portrait.width = 256;
+  portrait.height = 256;
+  portrait.border = "5px solid;";
+
+
+  let recommendedPerks = document.getElementById("recommendedPerks");
+  child = recommendedPerks.lastElementChild;
+  while (child) {
+    recommendedPerks.removeChild(child);
+    child = recommendedPerks.lastElementChild;
+  }
+  let recommended = getRecommended(perk);
+
+  for(let i = 0; i < recommended.length; i++){
+    recommendedPerks.appendChild(recommended[i]);
+  }
+
+  if(perk.role == "survivor"){lastSurv = perk;}
+  else if(perk.role == "killer"){lastKiller = perk;}
+}
+
+let getPerkImg = function(perk){
+  let img = document.createElement("img");
+  img.src = "http://localhost:8080/" + perk.image;
+  img.id = perk.name;
+  img.width = 128;
+  img.height = 128;
+  img.classList.add("perk");
+
+  img.addEventListener('click', function() {
+    clickPerk(perk);
+    img.classList.add("clickedPerk");
+  });
+  return img;
+}
 
 let getPerks = function(role) {
   let perkScroll = document.getElementById("perkScroll");
@@ -52,43 +174,10 @@ let getPerks = function(role) {
 
   keys.forEach(key => {
     let perk = perks[key];
+
     if (perk.role == role) {
-      let img = document.createElement("img");
-      img.src = "http://localhost:8080/" + perk.image;
-      img.id = perk.name;
-      img.width = 128;
-      img.height = 128;
-      img.classList.add("perk");
-
-      img.addEventListener('click', function() {
-        for (let i = 0; i < document.getElementsByClassName("clickedPerk").length; i++) {
-          document.getElementsByClassName("clickedPerk")[i].classList.remove("clickedPerk");
-        }
-        img.classList.add("clickedPerk");
-        document.getElementById('name').textContent = perk.name;
-        cleanText = perk.description.replace(/<\/?[^>]+(>|$)/g, "");
-        cleanText = cleanText.replaceAll(',', ', ');
-        cleanText = cleanText.replaceAll('.', '. ');
-        for (let i = 0; i < perk.tunables.length; i++) {
-          cleanText = cleanText.replace(`{${i}}`, perk.tunables[i][perk.tunables[i].length - 1]);
-        }
-        document.getElementById('description').innerText = cleanText;
-        for (let i = 1; i < 6; i++) {
-          if (i <= parseInt(perk.stars)) {
-            document.getElementById(`star${i}`).style.display = "";
-          } else {
-            document.getElementById(`star${i}`).style.display = "none";
-          }
-        }
-
-        let portrait = document.getElementById("portrait");
-        portrait.src = "http://localhost:8080/UI/Icons/CharPortraits/" + characters[perk.character].image;
-        portrait.width = 256;
-        portrait.height = 256;
-        portrait.border = "5px solid;";
-
-        document.getElementById("portraitName").innerText = characters[perk.character].name;
-      });
+      let img = getPerkImg(perk);
+      if(perk == lastSurv || perk == lastKiller){img.classList.add("clickedPerk");}
       perkScroll.appendChild(img);
     }
   });
@@ -99,68 +188,23 @@ let lookup = {
 
   setup: function() {
     getPerks("survivor");
+    clickPerk(lastSurv);
   }
 }
 
 lookup.setup();
 
 document.getElementById("roleKiller").addEventListener("click", function() {
-  for (let i = 0; i < document.getElementsByClassName("clickedPerk").length; i++) {
-    document.getElementsByClassName("clickedPerk")[i].classList.remove("clickedPerk");
-  }
-  document.getElementById("roleSurvivor").classList.remove("clickedRole");
   getPerks("killer");
-  document.getElementById(perks.NurseCalling.name).classList.add('clickedPerk');
-  document.getElementById('name').textContent = perks.NurseCalling.name;
-  cleanText = perks.NurseCalling.description.replace(/<\/?[^>]+(>|$)/g, "");
-  cleanText = cleanText.replaceAll(',', ', ');
-  cleanText = cleanText.replaceAll('.', '. ');
-  for (let i = 0; i < perks.NurseCalling.tunables.length; i++) {
-    cleanText = cleanText.replace(`{${i}}`, perks.NurseCalling.tunables[i][perks.NurseCalling.tunables[i].length - 1]);
-  }
-  document.getElementById('description').innerText = cleanText;
-  for (let i = 1; i < 6; i++) {
-    if (i <= parseInt(perks.NurseCalling.stars)) {
-      document.getElementById(`star${i}`).style.display = "";
-    } else {
-      document.getElementById(`star${i}`).style.display = "none";
-    }
-  }
-  let portrait = document.getElementById("portrait");
-  portrait.src = "http://localhost:8080/UI/Icons/CharPortraits/" + characters[perks.NurseCalling.character].image;
-  portrait.width = 256;
-  portrait.height = 256;
-  portrait.border = "5px solid;";
+  clickPerk(lastKiller);
+  document.getElementById("roleSurvivor").classList.remove("clickedRole");
   this.classList.add("clickedRole");
 });
 
-document.getElementById("roleSurvivor").addEventListener("click", function() {
-  for (let i = 0; i < document.getElementsByClassName("clickedPerk").length; i++) {
-    document.getElementsByClassName("clickedPerk")[i].classList.remove("clickedPerk");
-  }
-  document.getElementById("roleKiller").classList.remove("clickedRole");
+document.getElementById("roleSurvivor").addEventListener("click", function() {  getPerks("killer");
   getPerks("survivor");
-  document.getElementById(perks.Ace_In_The_Hole.name).classList.add('clickedPerk');
-  document.getElementById('name').textContent = perks.Ace_In_The_Hole.name;
-  cleanText = perks.Ace_In_The_Hole.description.replace(/<\/?[^>]+(>|$)/g, "");
-  cleanText = cleanText.replaceAll(',', ', ');
-  cleanText = cleanText.replaceAll('.', '. ');
-  for (let i = 0; i < perks.Ace_In_The_Hole.tunables.length; i++) {
-    cleanText = cleanText.replace(`{${i}}`, perks.Ace_In_The_Hole.tunables[i][perks.Ace_In_The_Hole.tunables[i].length - 1]);
-  }
-  document.getElementById('description').innerText = cleanText;
-  for (let i = 1; i < 6; i++) {
-    if (i <= parseInt(perks.Ace_In_The_Hole.stars)) {
-      document.getElementById(`star${i}`).style.display = "";
-    } else {
-      document.getElementById(`star${i}`).style.display = "none";
-    }
-  }
-  let portrait = document.getElementById("portrait");
-  portrait.src = "http://localhost:8080/UI/Icons/CharPortraits/" + characters[perks.Ace_In_The_Hole.character].image;
-  portrait.width = 256;
-  portrait.height = 256;
-  portrait.border = "5px solid;";
+  clickPerk(lastSurv);
+  document.getElementById("roleKiller").classList.remove("clickedRole");
   this.classList.add("clickedRole");
 });
 
@@ -180,3 +224,97 @@ function searchPerk() {
     }
   }
 }
+
+
+function loopNext(speed){
+    $('#perkScroll').stop().animate({scrollLeft:'+=40'}, 'fast', 'linear', loopNext);
+}
+
+function loopPrev(){
+    $('#perkScroll').stop().animate({scrollLeft:'-=40'}, 'fast', 'linear', loopPrev);
+}
+
+function stop(){
+    $('#perkScroll').stop();
+}
+
+function clickNext(speed){
+    $('#perkScroll').stop().animate({scrollLeft:'+=100'}, 'fast', 'linear', loopNext);
+}
+
+function clickPrev(){
+    $('#perkScroll').stop().animate({scrollLeft:'-=100'}, 'fast', 'linear', loopPrev);
+}
+
+
+$('#afterArrow').hover(function () {
+   loopNext();
+},function () {
+   stop();
+});
+
+$('#beforeArrow').hover(function () {
+   loopPrev();
+},function () {
+   stop();
+});
+
+let mousedownArrow = -1;
+$('#afterArrow').mousedown(function () {
+  if(mousedownArrow == -1)
+   mousedownArrow = setInterval(clickNext, 50);
+}).mouseup(function(){
+  clearInterval(mousedownArrow);
+  mousedownArrow = -1;
+});
+
+$('#beforeArrow').mousedown(function () {
+   mousedownArrow = setInterval(clickPrev, 50);
+}).mouseup(function(){
+  clearInterval(mousedownArrow);
+  mousedownArrow = -1;
+});
+
+$('#starsOfPerks').on('change', function(){
+  let perk;
+  let recommendedPerks = document.getElementById("recommendedPerks");
+  Object.keys(perks).forEach(k=>{
+    if(perks[k].name == document.getElementsByClassName("clickedPerk")[0].id){
+      perk = perks[k];
+    }
+  })
+
+
+  child = recommendedPerks.lastElementChild;
+  while (child) {
+    recommendedPerks.removeChild(child);
+    child = recommendedPerks.lastElementChild;
+  }
+  let recommended = getRecommended(perk);
+
+  for(let i = 0; i < recommended.length; i++){
+    recommendedPerks.appendChild(recommended[i]);
+  }
+});
+
+$('#minOrExact').on('change', function(){
+  let perk;
+  let recommendedPerks = document.getElementById("recommendedPerks");
+  Object.keys(perks).forEach(k=>{
+    if(perks[k].name == document.getElementsByClassName("clickedPerk")[0].id){
+      perk = perks[k];
+    }
+  })
+
+
+  child = recommendedPerks.lastElementChild;
+  while (child) {
+    recommendedPerks.removeChild(child);
+    child = recommendedPerks.lastElementChild;
+  }
+  let recommended = getRecommended(perk);
+
+  for(let i = 0; i < recommended.length; i++){
+    recommendedPerks.appendChild(recommended[i]);
+  }
+});
