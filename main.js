@@ -112,7 +112,7 @@ let clickPerk = function(perk){
 
   if(characters[perk.character] != null){
     document.getElementById("portraitName").innerText = characters[perk.character].name;
-    portrait.src = "https://jignaciodegiovanni.github.io/DBD-Lookup-ALPHA/" + characters[perk.character].image;
+    portrait.src = "https://jignaciodegiovanni.github.io/DBD-Lookup-ALPHA/UI/Icons/CharPortraits" + characters[perk.character].image;
   }
   else{
     document.getElementById("portraitName").innerText = `Basic ${perk.role} perk`;
