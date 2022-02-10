@@ -2,11 +2,11 @@ $.ajaxSetup({
   async: false
 });
 var killers, perks, survivors = null;
-$.getJSON("http://localhost:8080/json/perks.json", function(json) {
+$.getJSON("https://jignaciodegiovanni.github.io/DBD-Lookup-ALPHA/json/perks.json", function(json) {
   perks = json;
 });
 
-$.getJSON("http://localhost:8080/json/characters.json", function(json) {
+$.getJSON("https://jignaciodegiovanni.github.io/DBD-Lookup-ALPHA/json/characters.json", function(json) {
   characters = json;
 });
 
