@@ -1,3 +1,5 @@
+$(document).ready(function () {
+
 $.ajaxSetup({
   async: false
 });
@@ -62,7 +64,7 @@ let getRecommended = function(perk){
   let recommended = [];
   for(let i = 0; i < recommendedP.length; i++){
     let p = document.createElement("img");
-    p.src = "https://jignaciodegiovanni.github.io/" + recommendedP[i].image;
+    p.src = "https://jignaciodegiovanni.github.io/DBD-Lookup-ALPHA/" + recommendedP[i].image;
     p.id = recommendedP[i].name;
     p.width = 64;
     p.height = 64;
@@ -110,11 +112,11 @@ let clickPerk = function(perk){
 
   if(characters[perk.character] != null){
     document.getElementById("portraitName").innerText = characters[perk.character].name;
-    portrait.src = "https://jignaciodegiovanni.github.io/" + characters[perk.character].image;
+    portrait.src = "https://jignaciodegiovanni.github.io/DBD-Lookup-ALPHA/" + characters[perk.character].image;
   }
   else{
     document.getElementById("portraitName").innerText = `Basic ${perk.role} perk`;
-    portrait.src = "https://jignaciodegiovanni.github.io/css/pentagram.png";
+    portrait.src = "https://jignaciodegiovanni.github.io/DBD-Lookup-ALPHA/css/pentagram.png";
   }
 
   portrait.width = 256;
@@ -140,7 +142,7 @@ let clickPerk = function(perk){
 
 let getPerkImg = function(perk){
   let img = document.createElement("img");
-  img.src = "https://jignaciodegiovanni.github.io/" + perk.image;
+  img.src = "https://jignaciodegiovanni.github.io/DBD-Lookup-ALPHA/" + perk.image;
   img.id = perk.name;
   img.width = 128;
   img.height = 128;
@@ -317,4 +319,6 @@ $('#minOrExact').on('change', function(){
   for(let i = 0; i < recommended.length; i++){
     recommendedPerks.appendChild(recommended[i]);
   }
+});
+
 });
